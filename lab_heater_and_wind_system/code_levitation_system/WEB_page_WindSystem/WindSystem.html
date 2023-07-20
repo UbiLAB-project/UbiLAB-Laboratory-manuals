@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<script src="https://cdn.plot.ly/plotly-2.12.0.min.js"></script>
+
+	</head>
+		<body>
+		<style>
+		
+		.button {
+		  background-color: #4CAF50; /* Green */
+		  border: none;
+		  color: white;
+		  padding: 8px 12px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  transition-duration: 0.4s;
+		  cursor: pointer;
+		}
+
+		.button1 {
+		  background-color: white; 
+		  color: black; 
+		  border: 2px solid #4CAF50;
+		}
+		.button1:hover {
+		  background-color: #4CAF50;
+		  color: white;
+		}
+		.button2 {
+		  background-color: white; 
+		  color: black; 
+		  border: 2px solid #f44336;
+		}
+
+		.button2:hover {
+		  background-color: #f44336;
+		  color: white;
+		}
+		h1 {background-color: lightblue;}
+		h1 {text-align: center;}
+		h2 {outline: 1px solid red;}
+		p.groove {border-style: groove;}
+		
+		div.prop1 {
+			background-color: lightblue;
+			text-align: center;
+		    font-size:125%;
+		}
+		</style>
+		<h1 id="socketState">Wind-Levitation System</h1>
+		
+		
+		<div style="width: 100%; overflow: hidden;">
+			<div id="chart1" style="width: 42%; float: left;"></div>
+			<div id="chart2" style="width: 28%; float: left;"></div>
+			<div id="chart3" style="width: 25%; float: left;"></div>
+			<br style="clear: left;" />
+		</div>
+				<span style="font-weight:bold;font-size:20px"> Ref: </span>  <span id="ref_val" style="font-size:20px"> 0 </span> &nbsp &nbsp 
+				<span style="font-weight:bold;font-size:20px">Height:</span> <span id="height_val" style="font-size:20px"> 0 </span> &nbsp &nbsp
+				<span style="font-weight:bold;font-size:20px">Error:</span>  <span id="error_val" style="font-size:20px"> 0 </span> 
+		<br><br>
+
+		<div class="prop1">Control mode</div>
+
+			<div style="width: 100%; overflow: hidden;">
+				<div  style="width: 25%; float: left; background-color: rgb(255, 255, 255)">
+					&nbsp &nbsp<input type="radio" id="manual" style="height:18px; width:18px;" name="manual_radio" value="1" onclick="Radio_fun()" checked disabled> <label for="manual" style="font-weight:bold;font-size:18px">Open-Loop</label> &nbsp &nbsp &nbsp
+				</div>
+				<div  style="width: 25%; float: left; background-color: rgb(255, 255, 255)">
+					&nbsp &nbsp<input type="radio" id="closed" style="height:18px; width:18px;" name="closed_radio" value="0" onclick="Radio_fun()" disabled> <label for="closed"  style="font-weight:bold;font-size:18px">Closed-Loop</label><br>
+						
+				</div>
+			</div>
+
+
+				<div style="width: 100%; overflow: hidden;">
+
+					<div id="Open_loop_div" style="width: 25%; float: left; background-color: rgb(255, 255, 251)">
+							
+						
+						<br> 
+						&nbsp &nbsp &nbsp &nbsp <strong>Input value</strong><br><br>
+						&nbsp &nbsp &nbsp &nbsp &nbsp Input:
+							<input type="range" id="PWM_Slider"  value="8400" min="8000" max="9100" step="1" onchange="PWM_Slider_fun(this.value)" oninput="this.nextElementSibling.value = this.value" disabled>
+							<output><span id="PWM_val"> 8400 </span></output> <br> <br>	<br><br> <br><br> 	<br><br>
+
+					</div>
+					<div id="Closed_loop_div" style="width: 25%; float: left;">
+						
+						
+							<br>
+							&nbsp &nbsp &nbsp &nbsp <strong>Reference value</strong><br><br>
+							&nbsp &nbsp &nbsp &nbsp &nbsp Set point:
+
+							<input type="range" id="Set_Point_Slider"  value="550" min="100" max="800" step="0.5" onchange="Set_Point_Slider_fun(this.value)" oninput="this.nextElementSibling.value = this.value" disabled>
+							<output><span id="Set_Point_val"> 550 </span></output> <br> <br>
+
+							&nbsp &nbsp &nbsp &nbsp <strong>PID controller parameters</strong><br>
+							&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Kp:
+							<input type="range" id="Kp_Slider"  value="0" min="0" max="15" step="0.01" onchange="Kp_Slider_fun(this.value)" oninput="this.nextElementSibling.value = this.value" disabled>
+							<output><span id="Kp_val"> 0.0 </span></output> <br>
+							&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspTi: 
+							<input type="range" id="Ti_Slider"  value="10" min="0.1" max="50" step="0.1" onchange="Ti_Slider_fun(this.value)" oninput="this.nextElementSibling.value = this.value" disabled>
+							<output><span id="Ti_val"> 10.0 </span></output> <br>
+							&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Td:
+							<input type="range" id="Td_Slider"  value="0" min="0" max="3" step="0.05" onchange="Td_Slider_fun(this.value)" oninput="this.nextElementSibling.value = this.value" disabled>
+							<output><span id="Td_val"> 0.0 </span></output> <br> <br>
+					</div>
+		
+		</div>
+
+
+	    <div class="prop1">Server connection</div>
+		<br> 
+		
+		<div style="text-align: center";>
+	    <button class="button button1" onclick="Setup_Time()">Connect</button>
+	    <button class="button button2" onclick="Time_stop()">Disconnect</button>
+		</div>
+		<div style="text-align: center";>
+			Server status:  <span id="server_stat" style="font-weight:bold";> <strong> Disconnected </strong> </span>
+		</div>
+	</body>
+		<script>
+	//Need to instal node.js and npm (in cmd run 'node -v' and 'npm -v')
+
+		var ws;
+		var num1=0,num2=0,time_ARM=0;
+		var server_connect=0,t1,t2,t3;
+		var Chart_times_span=100;  //chart time span in [second]
+		var chart_update=250;	  //chart refresh time [ms]
+	    var chart_time = 0;
+		var ts=chart_update/1000; //Sampling time
+	    var slider_message;
+		var slider_flag=0;
+	    var ref=100,height=0,velocity=0,u_k=0;
+        var radio_flag=0,button_connect_flag=0;
+
+
+		//Radio button function
+		function Radio_fun()
+		{
+            if(radio_flag==0)
+			{
+				radio_flag=1;
+				document.getElementById("manual").checked = false;
+				document.getElementById("closed").checked = true;
+
+				document.getElementById("PWM_Slider").disabled = true;
+				document.getElementById("Set_Point_Slider").disabled = false;
+				document.getElementById("Kp_Slider").disabled = false;
+				document.getElementById("Ti_Slider").disabled = false;
+				document.getElementById("Td_Slider").disabled = false;
+				console.log("radio 1");
+				slider_message=['start&'];
+				slider_flag=1;
+
+			}else
+			{
+				radio_flag=0;	
+				document.getElementById("manual").checked = true;
+				document.getElementById("closed").checked = false;
+				document.getElementById("PWM_Slider").disabled = false;
+				document.getElementById("Set_Point_Slider").disabled =  true;
+				document.getElementById("Kp_Slider").disabled =  true;
+				document.getElementById("Ti_Slider").disabled =  true;
+				document.getElementById("Td_Slider").disabled =  true;
+				console.log("radio 0");
+				slider_message=['stop&'];
+				slider_flag=1;
+			}
+
+		}
+	   // Sliders function
+       function Set_Point_Slider_fun(val){
+		   slider_message=['ref '+val+'&'];
+		   console.log(slider_message); 
+		   slider_flag=1; //Ready to send message
+	   }
+	   
+		function Kp_Slider_fun(val){
+		   slider_message=['kp '+val+'&'];
+		   console.log(slider_message); 
+		   slider_flag=1; //Ready to send message
+	   }
+	   
+	   function Ti_Slider_fun(val){
+		   slider_message=['Ti '+val+'&'];
+		   console.log(slider_message); 
+		   slider_flag=1; //Ready to send message
+	   }
+	   
+	   function Td_Slider_fun(val){
+		   slider_message=['Td '+val+'&'];
+		   console.log(slider_message); 
+		   slider_flag=1; //Ready to send message
+	   }
+
+	   function PWM_Slider_fun(val){
+		   slider_message=['pwm '+val+'&'];
+		   console.log(slider_message); 
+		   slider_flag=1; //Ready to send message
+	   }
+
+
+	   // LIVE chart 
+	    Plotly.newPlot("chart1",[{
+			y:[ref],
+			x:[chart_time],
+			type:'line',
+			line: {color: 'DarkOrchid', width: 3},
+			name: 'Set Point',
+
+			
+		},{
+			y:[height],
+			x:[chart_time],
+			type:'line',
+			line: {color: 'CornflowerBlue', width: 3},
+			name: 'Height',
+			
+		
+		}
+		
+		
+	],{
+	       showlegend: true,
+			legend: {"orientation": "h"}
+		}
+	);
+		
+		 Plotly.newPlot("chart2",[{
+			y:[velocity],
+			x:[chart_time],
+			type:'line',
+			line: {color: 'DodgerBlue', width: 3},
+			name: 'Velocity'
+		}]);
+
+		Plotly.newPlot("chart3",[{
+			y:[u_k],
+			x:[chart_time],
+			type:'line',
+			line: {color: 'MediumVioletRed', width: 3},
+			name: 'u[duty]'
+		}]);
+		
+		
+		Plotly.relayout('chart1',{
+		    autosize: true,
+			width:  800,
+			height: 350,
+			xaxis: {
+				range: [0,Chart_times_span],
+				title: 'time [s]'
+			},
+			yaxis:{
+				range: [0,900],
+				title: 'Height [mm]'},
+			title: 'Height control'
+		});
+		
+		Plotly.relayout('chart2',{
+		    autosize: true,
+			width:  550,
+			height: 350,
+			xaxis: {
+				range: [0,Chart_times_span],
+				title: 'time [s]'
+			},
+			yaxis:{
+				range: [-250,250],
+				title: 'v[mm/s]'
+		        },
+			title: 'Velocity'
+		});
+
+		Plotly.relayout('chart3',{
+		    autosize: true,
+			width:  550,
+			height: 350,
+			xaxis: {
+				range: [0,Chart_times_span],
+				title: 'time [s]'
+			},
+			yaxis:{
+				range: [-450,450],
+				title: 'u[duty]'
+		        },
+			title: 'Controller effort'
+		});
+
+		// Update function
+		function Real_time_plot()
+		{
+
+            t3=setInterval(function(){
+                
+				Plotly.extendTraces('chart1',{ y:[[ref],[height]]}, [0,1]);
+				Plotly.extendTraces('chart1',{ x:[[chart_time],[chart_time]]}, [0,1]);
+				
+				Plotly.extendTraces('chart2',{ y:[[veloctiy]]}, [0]);
+				Plotly.extendTraces('chart2',{ x:[[chart_time]]}, [0]);
+
+					
+				Plotly.extendTraces('chart3',{ y:[[u_k]]}, [0]);
+				Plotly.extendTraces('chart3',{ x:[[chart_time]]}, [0]);
+				
+				
+					chart_time=chart_time+ts;
+					if(chart_time > Chart_times_span) {
+						Plotly.relayout('chart1',{
+							xaxis: {
+								range: [chart_time-Chart_times_span,chart_time],
+								title: 'time [s]'
+							}
+						});
+						
+						Plotly.relayout('chart2',{
+							xaxis: {
+								range: [chart_time-Chart_times_span,chart_time],
+								title: 'time [s]'
+							}
+						});
+
+						Plotly.relayout('chart3',{
+							xaxis: {
+								range: [chart_time-Chart_times_span,chart_time],
+								title: 'time [s]'
+							}
+						});
+						
+					}
+				},chart_update);
+			
+			
+		}
+		
+    
+
+
+
+
+		//WebSocket inti function
+		function WebSocketClient()
+		{
+			try {
+				ws=new WebSocket("ws://192.168.1.104:8000");
+			
+			}
+			catch(err) {
+				//document.getElementById("socketState").innerHTML="WebSockets [" + err + "]";
+			}
+			ws.onopen=function(evt)
+			{
+			    console.log('Open');
+				//document.getElementById("socketState").innerHTML="WebSockets EXAMPLE[" + evt.type + "]";
+				//document.getElementById("SuspendBtn").disabled=false;
+			}
+
+		    ws.onclose=function(evt)
+			{
+				//console.log('Closed');
+				//document.getElementById("socketState").innerHTML="WebSockets [" + evt.type + "]";
+			
+			}
+			
+			ws.onmessage=function(evt)
+			{
+
+				const myArray = evt.data.split(' ');
+				console.log(evt.data);
+				console.log(myArray);
+
+				if(myArray[0]=='D')
+				{
+                    ref      =parseFloat(myArray[1]).toFixed(1);
+					height   =parseFloat(myArray[2]).toFixed(1);
+					veloctiy =parseFloat(myArray[3]);
+					u_k      =parseFloat(myArray[4]);
+
+					if(server_connect==1) //Update slider
+					{
+						var error;
+                        document.getElementById("Set_Point_Slider").value = ref;
+						document.getElementById("Kp_Slider").value = parseFloat(myArray[5]);
+						document.getElementById("Ti_Slider").value = parseFloat(myArray[6]);
+						document.getElementById("Td_Slider").value = parseFloat(myArray[7]);
+						document.getElementById("Set_Point_val").innerHTML = myArray[1];
+						document.getElementById("Kp_val").innerHTML = myArray[5];
+						document.getElementById("Ti_val").innerHTML = myArray[6];
+						document.getElementById("Td_val").innerHTML = myArray[7];
+
+
+						
+
+                        server_connect=0;
+					}
+
+					document.getElementById("ref_val").innerHTML = myArray[1];
+				    document.getElementById("height_val").innerHTML = myArray[2];
+				    error=(ref-height).toFixed(1);
+				    document.getElementById("error_val").innerHTML =error.toString();
+
+				   //document.getElementById("TIME_ARM").innerHTML=  myArray[1];
+				   //document.getElementById("NUM1").innerHTML=  myArray[2];
+				   //document.getElementById("NUM2").innerHTML=  myArray[3];
+
+				}
+				//time_ARM = parseFloat(myArray[1]);
+				//num1     = parseFloat(myArray[2]);
+				//num2     = parseFloat(myArray[3]);
+				//Update HTML
+				//document.getElementById("TIME_ARM").innerHTML=  myArray[1];
+				//document.getElementById("NUM1").innerHTML=  myArray[2];
+				//document.getElementById("NUM2").innerHTML=  myArray[3];
+				
+                 
+			}
+		}
+		
+		
+		//Send function
+		function BtnHandler()
+		{		
+					console.log('Sending ANDY');
+					//ws.send(num.toString());
+					
+					if (slider_flag==1)
+					{
+					   ws.send(slider_message);
+					   WebSocketClient();
+					   slider_flag=0; 
+					}else
+					{
+					   ws.send('SERVER'); //Request last values
+					   WebSocketClient();
+					}
+					
+
+		
+		}
+		
+	
+		
+       function Time_stop()
+		{
+
+			if(button_connect_flag==1)
+			{
+				button_connect_flag=0;
+				server_connect=0;
+				clearInterval(t2);
+				clearInterval(t3);
+				console.log('Stop timer');
+
+				
+				ws.send('stop&'); //Request last values
+				
+				//Radio buttons disable
+				document.getElementById("manual").checked = true;
+				document.getElementById("closed").checked = false;
+				document.getElementById("manual").disabled = true;
+				document.getElementById("closed").disabled = true;
+				document.getElementById("server_stat").innerHTML= "Disconnected";
+			}
+
+		}
+		
+		
+		function Setup_Time()
+		{
+			if(button_connect_flag==0)
+			{
+				button_connect_flag=1;
+				console.log('Ready');
+				server_connect=1;
+				//WebSocketClient();
+				setTimeout(function() { WebSocketClient()}, 10);
+				console.log('GO GO  !');
+				t2=setInterval(function(){BtnHandler()},150); //Timer function repeat each 50ms
+				Real_time_plot();
+					
+				//Radio buttons enable
+				document.getElementById("manual").disabled = false;
+				document.getElementById("closed").disabled = false;
+
+				document.getElementById("PWM_Slider").disabled = false;
+
+				document.getElementById("server_stat").innerHTML= "Connected";
+
+
+
+
+			}
+		
+		
+		}
+		
+   
+		
+	 </script>
+
+</html>

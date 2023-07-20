@@ -1,0 +1,5 @@
+read_controller.c:37:6:Real_time	16	static
+read_controller.c:93:6:reference_filter	16	static
+read_controller.c:129:6:SMC_Differenciator	16	static
+read_controller.c:160:7:sgn	16	static
+read_controller.c:184:7:ABS	16	static

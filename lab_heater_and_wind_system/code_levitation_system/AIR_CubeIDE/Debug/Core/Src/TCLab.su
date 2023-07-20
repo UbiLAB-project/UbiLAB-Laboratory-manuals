@@ -1,0 +1,8 @@
+TCLab.c:72:6:Serial_read_main_Vetrovnik	8	static
+TCLab.c:99:6:ReceiveData	4	static
+TCLab.c:119:6:ParseData	16	static
+TCLab.c:186:6:dispatchCommand	64	static
+TCLab.c:302:6:CleanData	8	static
+TCLab.c:323:6:sendResponse	24	static
+TCLab.c:332:6:sendFloatResponse	40	static
+TCLab.c:348:6:checkAlarm	4	static
