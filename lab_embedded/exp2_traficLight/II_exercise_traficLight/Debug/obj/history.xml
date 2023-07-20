@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F103C8 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\Iexercise_traficLight -I..\..\..\workspace -I..\..\..\workspace\Iexercise_traficLight\stm_lib\inc -I..\..\..\workspace\Iexercise_traficLight\stm_lib -I..\..\..\workspace\Iexercise_traficLight\cmsis_boot -I..\..\..\workspace\Iexercise_traficLight\cmsis">
+      <target file="stm32f10x_rcc.o" lastModified="185efbadcf3">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="185d9d138e5"/>
+      </target>
+      <target file="startup_stm32f10x_md.o" lastModified="185efbadb53">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="185d9d138db"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="185efbadafa">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="185d9d138e4"/>
+      </target>
+      <target file="main.o" lastModified="18602d48758">
+         <source file="..\..\..\main.c" lastModified="18602d46063"/>
+      </target>
+      <target file="stm32f10x_gpio.o" lastModified="185efbadbea">
+         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="185d9d138db"/>
+      </target>
+   </processor>
+</history>

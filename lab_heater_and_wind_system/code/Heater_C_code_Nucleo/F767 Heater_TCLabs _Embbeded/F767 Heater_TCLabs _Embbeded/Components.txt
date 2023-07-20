@@ -1,0 +1,19 @@
+Q1-heater (TIP31C)
+T-sensor TMP36
+
+PWM     Arduino   STM32F401
+Q1pin     3       (PE13)  @520HZ  TIM1_CH3
+Q2pin     5       (PB11)          TIM1_CH2
+
+
+ADC    Arduino   STM32F401
+T1       0        (PA3)   IN3   (CH3)  ADC1 12bit
+T2       2        (PC3)   IN13  (CH13) ADC1 12bit
+
+alarm LED
+LED (PD 15) 
+
+
+Serial Nucleo F767
+USART3 (PD8,PD9) VCP mode on STM32F767 115200
+

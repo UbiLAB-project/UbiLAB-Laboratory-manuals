@@ -1,0 +1,14 @@
+TCLab.c:96:6:Serial_read_main_TCLab	8	static
+TCLab.c:124:6:ReceiveData	4	static
+TCLab.c:144:6:ParseData	16	static
+TCLab.c:211:6:dispatchCommand	56	static
+TCLab.c:393:6:CleanData	8	static
+TCLab.c:414:6:sendResponse	24	static
+TCLab.c:420:6:sendFloatResponse	40	static
+TCLab.c:432:6:sendFloatResponse1	120	static
+TCLab.c:443:6:sendFloatResponse2	432	static
+TCLab.c:456:6:sendBinaryResponse	24	static
+TCLab.c:466:7:readTemperature	24	static
+TCLab.c:507:6:setHeater1	16	static
+TCLab.c:526:6:setHeater2	16	static
+TCLab.c:548:6:checkAlarm	8	static

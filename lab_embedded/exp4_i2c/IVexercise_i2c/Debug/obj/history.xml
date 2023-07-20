@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F103C8 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\IVexercise_i2c\cmsis_boot -I..\..\..\workspace\IVexercise_i2c\stm_lib\inc -I..\..\..\workspace -I..\..\..\workspace\IVexercise_i2c\cmsis -I..\..\..\workspace\IVexercise_i2c -I..\..\..\workspace\IVexercise_i2c\stm_lib">
+      <target file="stm32f10x_pwr.o" lastModified="185efcf50df">
+         <source file="..\..\..\stm_lib\src\stm32f10x_pwr.c" lastModified="185dacb84de"/>
+      </target>
+      <target file="stm32f10x_tim.o" lastModified="185efcf4ff2">
+         <source file="..\..\..\stm_lib\src\stm32f10x_tim.c" lastModified="185daccd348"/>
+      </target>
+      <target file="stm32f10x_i2c.o" lastModified="185efcf52f8">
+         <source file="..\..\..\stm_lib\src\stm32f10x_i2c.c" lastModified="185dac008ef"/>
+      </target>
+      <target file="stm32f10x_rtc.o" lastModified="185efcf4f33">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rtc.c" lastModified="185dacb84d3"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="185efcf507d">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="185dac008fd"/>
+      </target>
+      <target file="main.o" lastModified="185efcf5218">
+         <source file="..\..\..\main.c" lastModified="185db87087b"/>
+      </target>
+      <target file="stm32f10x_gpio.o" lastModified="185efcf5196">
+         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="185dac00902"/>
+      </target>
+      <target file="stm32f10x_rcc.o" lastModified="185efcf5285">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="185dac00902"/>
+      </target>
+      <target file="startup_stm32f10x_md.o" lastModified="185efcf512f">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="185dac008f8"/>
+      </target>
+   </processor>
+</history>

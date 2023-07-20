@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=IIIexercise_adc.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\IIIexercise_adc -TC:\CooCox\CoIDE\configuration\ProgramData\IIIexercise_adc/arm-gcc-link.ld -g">
+      <target file="IIIexercise_adc.elf" lastModified="18602d69b2c">
+         <source file="..\obj\system_stm32f10x.o" lastModified="185efca1104"/>
+         <source file="..\obj\startup_stm32f10x_md.o" lastModified="185efca1162"/>
+         <source file="..\obj\stm32f10x_gpio.o" lastModified="185efca11f3"/>
+         <source file="..\obj\main.o" lastModified="18602d69920"/>
+         <source file="..\obj\stm32f10x_rcc.o" lastModified="185efca1348"/>
+         <source file="..\obj\stm32f10x_adc.o" lastModified="185efca141a"/>
+      </target>
+   </processor>
+</history>

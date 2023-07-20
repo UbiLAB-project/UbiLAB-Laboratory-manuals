@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\workspace\I_exercise_led\stm_lib /I..\..\..\workspace\I_exercise_led\cmsis_boot /I..\..\..\workspace\I_exercise_led\cmsis /I..\..\..\workspace /I..\..\..\workspace\I_exercise_led /I..\..\..\workspace\I_exercise_led\stm_lib\inc">
+      <source file="..\..\..\cmsis_boot\stm32f10x.h" lastModified="185d96ca234">
+         <include file="..\..\..\cmsis\core_cm3.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f10x.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f10x_conf.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_rcc.h" lastModified="185d96c9e53">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="185d96ca621">
+      </source>
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="185d96ca622">
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="185d96c9e54">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="185d96c9e42">
+         <include file="..\..\..\stm_lib\inc\stm32f10x_gpio.h"/>
+         <include file="..\..\..\stm_lib\inc\stm32f10x_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm3.h" lastModified="185d96ca239">
+         <include file="..\..\..\cmsis\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="185d96c9e4a">
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f10x_conf.h" lastModified="185d96c9e4c">
+      </source>
+      <source file="..\..\..\stm_lib\inc\stm32f10x_gpio.h" lastModified="185d96c9e41">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.h" lastModified="185d96c9e4e">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="185d96c9e4d">
+         <include file="..\..\..\cmsis_boot\stm32f10x.h"/>
+      </source>
+   </includePath>
+</dependencies>

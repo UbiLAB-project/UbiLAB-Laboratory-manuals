@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=IVexercise_i2c.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\IVexercise_i2c -TC:\CooCox\CoIDE\configuration\ProgramData\IVexercise_i2c/arm-gcc-link.ld -g">
+      <target file="IVexercise_i2c.elf" lastModified="185efcf5559">
+         <source file="..\obj\stm32f10x_rtc.o" lastModified="185efcf4f33"/>
+         <source file="..\obj\stm32f10x_tim.o" lastModified="185efcf4ff2"/>
+         <source file="..\obj\system_stm32f10x.o" lastModified="185efcf507d"/>
+         <source file="..\obj\stm32f10x_pwr.o" lastModified="185efcf50df"/>
+         <source file="..\obj\startup_stm32f10x_md.o" lastModified="185efcf512f"/>
+         <source file="..\obj\stm32f10x_gpio.o" lastModified="185efcf5196"/>
+         <source file="..\obj\main.o" lastModified="185efcf5218"/>
+         <source file="..\obj\stm32f10x_rcc.o" lastModified="185efcf5285"/>
+         <source file="..\obj\stm32f10x_i2c.o" lastModified="185efcf52f8"/>
+      </target>
+   </processor>
+</history>

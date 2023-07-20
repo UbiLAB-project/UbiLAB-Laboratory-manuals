@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=Vexercise_uart.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Vexercise_uart -TC:\CooCox\CoIDE\configuration\ProgramData\Vexercise_uart/arm-gcc-link.ld -g">
+      <target file="Vexercise_uart.elf" lastModified="18603212742">
+         <source file="..\obj\system_stm32f10x.o" lastModified="186031d93a6"/>
+         <source file="..\obj\startup_stm32f10x_md.o" lastModified="186031d93ed"/>
+         <source file="..\obj\stm32f10x_gpio.o" lastModified="186031d944e"/>
+         <source file="..\obj\main.o" lastModified="18603212515"/>
+         <source file="..\obj\stm32f10x_rcc.o" lastModified="186031d952f"/>
+         <source file="..\obj\stm32f10x_adc.o" lastModified="186031d9586"/>
+         <source file="..\obj\stm32f10x_usart.o" lastModified="186031d95ea"/>
+      </target>
+   </processor>
+</history>

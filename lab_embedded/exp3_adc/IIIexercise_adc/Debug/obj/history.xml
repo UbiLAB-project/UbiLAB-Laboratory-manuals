@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F103C8 -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace -I..\..\..\workspace\IIIexercise_adc\stm_lib -I..\..\..\workspace\IIIexercise_adc\stm_lib\inc -I..\..\..\workspace\IIIexercise_adc\cmsis_boot -I..\..\..\workspace\IIIexercise_adc\cmsis -I..\..\..\workspace\IIIexercise_adc">
+      <target file="stm32f10x_rcc.o" lastModified="185efca1348">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="185d9da9294"/>
+      </target>
+      <target file="startup_stm32f10x_md.o" lastModified="185efca1162">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md.c" lastModified="185d9da928a"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="185efca1104">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="185d9da928a"/>
+      </target>
+      <target file="stm32f10x_adc.o" lastModified="185efca141a">
+         <source file="..\..\..\stm_lib\src\stm32f10x_adc.c" lastModified="185d9da9d34"/>
+      </target>
+      <target file="main.o" lastModified="18602d69920">
+         <source file="..\..\..\main.c" lastModified="185efcbc026"/>
+      </target>
+      <target file="stm32f10x_gpio.o" lastModified="185efca11f3">
+         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="185d9da9285"/>
+      </target>
+   </processor>
+</history>

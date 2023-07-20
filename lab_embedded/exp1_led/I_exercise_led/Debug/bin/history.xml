@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=I_exercise_led.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\I_exercise_led -TC:\CooCox\CoIDE\configuration\ProgramData\I_exercise_led/arm-gcc-link.ld -g">
+      <target file="I_exercise_led.elf" lastModified="18602d05483">
+         <source file="..\obj\system_stm32f10x.o" lastModified="18602cfb2ef"/>
+         <source file="..\obj\startup_stm32f10x_md.o" lastModified="18602cfb33f"/>
+         <source file="..\obj\stm32f10x_gpio.o" lastModified="18602cfb394"/>
+         <source file="..\obj\main.o" lastModified="18602d05246"/>
+         <source file="..\obj\stm32f10x_rcc.o" lastModified="18602cfb436"/>
+      </target>
+   </processor>
+</history>
