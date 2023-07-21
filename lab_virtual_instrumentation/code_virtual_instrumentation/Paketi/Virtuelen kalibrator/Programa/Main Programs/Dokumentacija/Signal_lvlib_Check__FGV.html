@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+<TITLE>Signal.lvlib:Check_FGV.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="Signal.lvlib:Check_FGV.vi"></A><H2>Signal.lvlib:Check_FGV.vi</H2>
+<P>This FGV is used to check if &quot; . &quot; or &quot; +/-&quot; is clicked.  If the the controls are clicked odd number of times the output will be decimal and &quot; - &quot; respectively and vice versa .</P>
+<P><IMG SRC="Signal_lvlib_Check__FGVc.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVp.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>Error In</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cenum.png" ALT="cenum"></P>
+</TD>
+<TD>
+<B>Action</B> <P>Pick action of the FGV.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>Error Out</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ii32.png" ALT="ii32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>Number ?</B> <P>If it is true the next clicked num will be in the number part, otherwise decimal will be entered.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>+- Out</B> <P>This is the + or - string depended of the numbers the plus minus button is clicked</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>Dot String</B> <P>Reminder so the user knows where the next numeric command will be inserted.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>Shift ?</B> <P>This indicator is used to check if shift was clicked. </P>
+</TD>
+</TR>
+</Table>
+<P><IMG SRC="Signal_lvlib_Check__FGVd.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd1.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd2.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd3.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd4.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd5.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd6.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd7.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd8.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_Check__FGVd9.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="checkctli.png" ALT="check.ctl"></P>
+</TD>
+<TD>
+<B><P>check.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\check.ctl</P>
+</TD>
+</TR>
+</Table>
+<P>&quot;Signal.lvlib:Check_FGV.vi History&quot;</P>
+<P>Current Revision:   13</P>
+<HR>
+<H3>Position in Hierarchy</H3>
+<P><IMG SRC="Signal_lvlib_Check__FGVh.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+<HR>
+<H3>Iconified Cluster Constants</H3>
+</BODY>
+</HTML>

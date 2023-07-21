@@ -1,0 +1,355 @@
+<HTML>
+<HEAD>
+<TITLE>Main.lvlib:DaQ_FGV.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="Main.lvlib:DaQ_FGV.vi"></A><H2>Main.lvlib:DaQ_FGV.vi</H2>
+<P>This FGV is used to:</P>
+<P>-Init DaQ process depending on the unit that is calibrated </P>
+<P>-Start the DaQ process</P>
+<P>-Stop the DaQ process</P>
+<P>-Delete the DaQ process </P>
+<P>-Remeber the Unit that is calibrated</P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVc.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVp.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>Error In</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cenum.png" ALT="cenum"></P>
+</TD>
+<TD>
+<B>Action</B> <P>Pick the action of the FGV.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>V/A?</B> <P>Enter the unit that is calibrated. A for current V for voltage. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cmsdt.png" ALT="cmsdt"></P>
+</TD>
+<TD>
+<B>Output Signal</B> <P>Enter the waveform. </P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="catrn.png" ALT="catrn"></P>
+</TD>
+<TD>
+<B>t0</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cdbl.png" ALT="cdbl"></P>
+</TD>
+<TD>
+<B>dt</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="c1ddbl.png" ALT="c1ddbl"></P>
+</TD>
+<TD>
+<B>Y</B> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cdbl.png" ALT="cdbl"></P>
+</TD>
+<TD>
+<B>dt</B> </TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>error</B> <P>The error cluster contains error or warning information. </P>
+<P></P>
+<P>The pop-up option Explain Error (or Explain Warning) gives more information about the error displayed. </P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>status</B> <P>The status boolean is either TRUE (X) for an error, or FALSE (checkmark) for no error or a warning.</P>
+<P></P>
+<P>The pop-up option Explain Error (or Explain Warning) gives more information about the error displayed.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>code</B> <P>The code number identifies the error or warning.</P>
+<P></P>
+<P>The pop-up option Explain Error (or Explain Warning) gives more information about the error displayed.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>source</B> <P>The source string describes the origin of the error or warning.</P>
+<P></P>
+<P>The pop-up option Explain Error (or Explain Warning) gives more information about the error displayed.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cfxdt.png" ALT="cfxdt"></P>
+</TD>
+<TD>
+<B>attributes</B> </TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>Error Out</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ii32.png" ALT="ii32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd1.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd2.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd3.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd4.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd5.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd6.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd7.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<P><IMG SRC="Main_lvlib_DaQ__FGVd8.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Clear_Taski.png" ALT="DAQmx Clear Task.vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Clear Task.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\configure\task.llb\DAQmx Clear Task.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Fill_In_Error_Infoi.png" ALT="DAQmx Fill In Error Info.vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Fill In Error Info.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\miscellaneous.llb\DAQmx Fill In Error Info.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Stop_Taski.png" ALT="DAQmx Stop Task.vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Stop Task.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\configure\task.llb\DAQmx Stop Task.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Start_Taski.png" ALT="DAQmx Start Task.vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Start Task.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\configure\task.llb\DAQmx Start Task.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Create_Virtual_Channeli.png" ALT="DAQmx Create Virtual Channel.vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Create Virtual Channel.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\create\channels.llb\DAQmx Create Virtual Channel.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Create_Channel_(AO-Voltage-Basic)i.png" ALT="DAQmx Create Channel (AO-Voltage-Basic).vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Create Channel (AO-Voltage-Basic).vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\create\channels.llb\DAQmx Create Channel (AO-Voltage-Basic).vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Create_Channel_(AO-Current-Basic)i.png" ALT="DAQmx Create Channel (AO-Current-Basic).vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Create Channel (AO-Current-Basic).vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\create\channels.llb\DAQmx Create Channel (AO-Current-Basic).vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Create_Taski.png" ALT="DAQmx Create Task.vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Create Task.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\create\task.llb\DAQmx Create Task.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Write_(Analog_Wfm_1Chan_NSamp)i.png" ALT="DAQmx Write (Analog Wfm 1Chan NSamp).vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Write (Analog Wfm 1Chan NSamp).vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\write.llb\DAQmx Write (Analog Wfm 1Chan NSamp).vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DAQmx_Writei.png" ALT="DAQmx Write.vi"></P>
+</TD>
+<TD>
+<B><P>DAQmx Write.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\DAQmx\write.llb\DAQmx Write.vi</P>
+</TD>
+</TR>
+</Table>
+<P>&quot;Main.lvlib:DaQ_FGV.vi History&quot;</P>
+<P>Current Revision:   19</P>
+<HR>
+<H3>Position in Hierarchy</H3>
+<P><IMG SRC="Main_lvlib_DaQ__FGVh.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+<HR>
+<H3>Iconified Cluster Constants</H3>
+</BODY>
+</HTML>

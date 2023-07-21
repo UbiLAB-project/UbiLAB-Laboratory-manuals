@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+<TITLE>Queues.lvlib:Init_Main.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="Queues.lvlib:Init_Main.vi"></A><H2>Queues.lvlib:Init_Main.vi</H2>
+<P>This VI is used to create user event, create and and init the quees of the main VI and the QMH, and to create the  notifier. </P>
+<P><IMG SRC="Queues_lvlib_Init__Mainc.png" ALT="Queues.lvlib:Init_Main.vi"></P>
+<P><IMG SRC="Queues_lvlib_Init__Mainp.png" ALT="Queues.lvlib:Init_Main.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>Error In</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>Error Out</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ii32.png" ALT="ii32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="icclst.png" ALT="icclst"></P>
+</TD>
+<TD>
+<B>Queue Cluster</B> <P>Cluster of the queues, notifiers and user events</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="iqueuern.png" ALT="iqueuern"></P>
+</TD>
+<TD>
+<B>Calibrator QMH</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="iqueuern.png" ALT="iqueuern"></P>
+</TD>
+<TD>
+<B>DaQ QMH</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="iqueuern.png" ALT="iqueuern"></P>
+</TD>
+<TD>
+<B>DaQ</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ieventregrn.png" ALT="ieventregrn"></P>
+</TD>
+<TD>
+<B>ER</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="iusereventrn.png" ALT="iusereventrn"></P>
+</TD>
+<TD>
+<B>User Event</B> </TD>
+</TR>
+</Table>
+</UL>
+<P><IMG SRC="Queues_lvlib_Init__Maind.png" ALT="Queues.lvlib:Init_Main.vi"></P>
+<P><IMG SRC="Queues_lvlib_Init__Maind1.png" ALT="Queues.lvlib:Init_Main.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Main__program__queuesctli.png" ALT="Main_program_queues.ctl"></P>
+</TD>
+<TD>
+<B><P>Main_program_queues.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\Main_program_queues.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="QMH__Daq__Statesctli.png" ALT="QMH_Daq_States.ctl"></P>
+</TD>
+<TD>
+<B><P>QMH_Daq_States.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\QMH_Daq_States.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Kalibrator__Sostojbictli.png" ALT="Kalibrator_Sostojbi.ctl"></P>
+</TD>
+<TD>
+<B><P>Kalibrator_Sostojbi.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\Kalibrator_Sostojbi.ctl</P>
+</TD>
+</TR>
+</Table>
+<P>&quot;Queues.lvlib:Init_Main.vi History&quot;</P>
+<P>Current Revision:   29</P>
+<HR>
+<H3>Position in Hierarchy</H3>
+<P><IMG SRC="Queues_lvlib_Init__Mainh.png" ALT="Queues.lvlib:Init_Main.vi"></P>
+<HR>
+<H3>Iconified Cluster Constants</H3>
+<P><IMG SRC="Queues_lvlib_Init__Maink1.png" ALT="Queues.lvlib:Init_Main.vi"></P>
+<P><IMG SRC="Queues_lvlib_Init__Maink2.png" ALT="Queues.lvlib:Init_Main.vi"></P>
+</BODY>
+</HTML>

@@ -1,0 +1,422 @@
+<HTML>
+<HEAD>
+<TITLE>Signal.lvlib:signal_values_FGV.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="Signal.lvlib:signal_values_FGV.vi"></A><H2>Signal.lvlib:signal_values_FGV.vi</H2>
+<P>This FGV is used to memorize and operate with the signal properties. </P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVc.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVp.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>Error In</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cenum.png" ALT="cenum"></P>
+</TD>
+<TD>
+<B>Action</B> <P>Pick the Action of the FGV.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Amp String</B> <P>Enter the Amp string.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cdbl.png" ALT="cdbl"></P>
+</TD>
+<TD>
+<B>Amp Value</B> <P>Enter the amp value.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cdbl.png" ALT="cdbl"></P>
+</TD>
+<TD>
+<B>Hz Value</B> <P>Enter the Hz value.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Hz String</B> <P>Enter the Hz string</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cenum.png" ALT="cenum"></P>
+</TD>
+<TD>
+<B>Waveform</B> <P><B>signal type</B> is the type of waveform to generate.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cdbl.png" ALT="cdbl"></P>
+</TD>
+<TD>
+<B>Offset</B> <P>Enter the offset.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cdbl.png" ALT="cdbl"></P>
+</TD>
+<TD>
+<B>Phase</B> <P>Enter the phase</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>Error Out</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ii32.png" ALT="ii32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="icclst.png" ALT="icclst"></P>
+</TD>
+<TD>
+<B>Signal</B> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>Amp String</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="idbl.png" ALT="idbl"></P>
+</TD>
+<TD>
+<B>Amp Value</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="idbl.png" ALT="idbl"></P>
+</TD>
+<TD>
+<B>Hz Value Out</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ienum.png" ALT="ienum"></P>
+</TD>
+<TD>
+<B>Waveform Out</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="idbl.png" ALT="idbl"></P>
+</TD>
+<TD>
+<B>Offset Out</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="idbl.png" ALT="idbl"></P>
+</TD>
+<TD>
+<B>Phase Out</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>Signal String</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="imsdt.png" ALT="imsdt"></P>
+</TD>
+<TD>
+<B>Signal</B> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="iatrn.png" ALT="iatrn"></P>
+</TD>
+<TD>
+<B>t0</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="idbl.png" ALT="idbl"></P>
+</TD>
+<TD>
+<B>dt</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="i1ddbl.png" ALT="i1ddbl"></P>
+</TD>
+<TD>
+<B>Y</B> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="idbl.png" ALT="idbl"></P>
+</TD>
+<TD>
+<B>dt</B> </TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>error</B> <P>The error cluster contains error or warning information. </P>
+<P></P>
+<P>The pop-up option Explain Error (or Explain Warning) gives more information about the error displayed. </P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>status</B> <P>The status boolean is either TRUE (X) for an error, or FALSE (checkmark) for no error or a warning.</P>
+<P></P>
+<P>The pop-up option Explain Error (or Explain Warning) gives more information about the error displayed.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ii32.png" ALT="ii32"></P>
+</TD>
+<TD>
+<B>code</B> <P>The code number identifies the error or warning.</P>
+<P></P>
+<P>The pop-up option Explain Error (or Explain Warning) gives more information about the error displayed.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>source</B> <P>The source string describes the origin of the error or warning.</P>
+<P></P>
+<P>The pop-up option Explain Error (or Explain Warning) gives more information about the error displayed.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ifxdt.png" ALT="ifxdt"></P>
+</TD>
+<TD>
+<B>attributes</B> </TD>
+</TR>
+</Table>
+</UL>
+</UL>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd1.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd2.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd3.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd4.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd5.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd6.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd7.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVd8.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NI__MABase_lvlib_Basic_Function_Generatori.png" ALT="NI_MABase.lvlib:Basic Function Generator.vi"></P>
+</TD>
+<TD>
+<B><P>NI_MABase.lvlib:Basic Function Generator.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\measure\masignal.llb\Basic Function Generator.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_lvlib_string__signali.png" ALT="Signal.lvlib:string_signal.vi"></P>
+</TD>
+<TD>
+<B><P>Signal.lvlib:string_signal.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Signal\subVIs\string_signal.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_Valuesctli.png" ALT="Signal Values.ctl"></P>
+</TD>
+<TD>
+<B><P>Signal Values.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\Signal Values.ctl</P>
+</TD>
+</TR>
+</Table>
+<P>&quot;Signal.lvlib:signal_values_FGV.vi History&quot;</P>
+<P>Current Revision:   37</P>
+<HR>
+<H3>Position in Hierarchy</H3>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVh.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<HR>
+<H3>Iconified Cluster Constants</H3>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVk1.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVk2.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+</BODY>
+</HTML>

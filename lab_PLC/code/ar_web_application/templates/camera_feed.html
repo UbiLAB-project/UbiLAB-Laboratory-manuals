@@ -1,0 +1,725 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <script type="text/javascript" src="{{url_for('static', filename='aframe.min.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='aframe-ar.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aframe-aabb-collider-component@3.2.0/dist/aframe-aabb-collider-component.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="icon" type="image/x-icon"  href="{{url_for('static', filename='FEIT-logo.png')}}">
+    </head>
+
+    <body style="margin: 0px; overflow: hidden;">
+
+        <script>
+        var markerVisible = { m0: false, m1: false, m2: false, m3: false, m4: false };
+        var distances = { m1: 0, m2: 0, m3: 0, m4: 0 }
+        var shortestDistance = { mark: '', distance: 0 }
+        var placeObject = false
+        var activateSensor = {m1: true, m2: true, m3: true, m4: true };
+        var buttons = {t1: false, t2: false, b1: false, b2: false}
+        var shouldSensorActivate = {m1: false, m2: false, m3: false, m4: false };
+        var shouldSensorActivatePreviousState = {m1: false, m2: false, m3: false, m4: false };
+        var waitingToSend = false
+        
+        var showPopup = false
+        var activeRun = true
+
+        var mdown = false
+
+        var sensorTest = ''
+
+        var token = ''
+        var streamUrl = ''
+
+        function calculateDistance (x1, y1, x2, y2) {
+            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
+        }
+
+        function calculateShortestDistance () {
+            const arr = Object.values(distances).filter(x => x !== 0)
+            if (arr.length > 0) {
+                shortestDistance.distance = arr.reduce((a, b) => Math.min(Math.abs(a), Math.abs(b)))
+                shortestDistance.mark = Object.keys(distances)
+                    .find(x => distances[x] === shortestDistance.distance)
+            }
+
+        }
+
+        function checkShowObject () {
+            const virtualObject = document.getElementById("virtualObject")
+            virtualObject.setAttribute('visible', placeObject)
+        }
+
+        function handleSensors () {
+            const activeSensors = Object.keys(activateSensor).filter(x => activateSensor[x])
+            const notActiveSensors = Object.keys(activateSensor).filter(x => !activateSensor[x])
+            
+            notActiveSensors.forEach(element => {
+                document.getElementById('sensor_' + element).setAttribute('visible', false)
+            })
+
+            activeSensors.forEach(element => {
+                document.getElementById('sensor_' + element).setAttribute('visible', true)
+            })
+        }
+
+        function checkActiveSensors () {
+            const activeSensors = Object.keys(activateSensor).filter(x => activateSensor[x])
+
+            activeSensors.forEach(element => {
+            if (element === shortestDistance.mark && shouldSensorActivate[element]) { 
+                sensorTest = element
+                document.getElementById('sensor_' + shortestDistance.mark).setAttribute('material', 'color', 'green')
+            } else {
+                document.getElementById('sensor_' + element).setAttribute('material', 'color', 'red')
+            }
+            })
+        }
+
+        function sensorActivation(objectPoint, sensorPoint, sensor, m) {
+            if(shouldSensorActivatePreviousState[sensor] !== shouldSensorActivate[sensor])
+                shouldSensorActivatePreviousState[sensor] = shouldSensorActivate[sensor]
+
+            shouldSensorActivate[sensor] = 
+            (Math.abs(sensorPoint.x - objectPoint.x) <= 0.5 || Math.abs(sensorPoint.y - objectPoint.y) <= 0.5)
+            && shortestDistance.mark == sensor
+        }
+
+        function shouldSendData(sensor) {
+            if (shouldSensorActivatePreviousState[sensor] !== shouldSensorActivate[sensor] && !waitingToSend) {
+                waitingToSend = !waitingToSend
+            }
+            setTimeout(() => {
+                if (waitingToSend) {
+                    waitingToSend = !waitingToSend
+                    updateSensor(sensor)
+                }
+            }, 450);
+        }
+
+        async function testApi() {
+            await fetch('https://virtual-aut-lab-ubilab.feit.ukim.edu.mk/').then(res => res.text()).then(response => console.log(response))
+        }
+
+        async function updatePLC() {
+            await fetch('/api/update-plc', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    plc: this.activeRun
+                })
+            }).then(res => res.text()).then(response => console.log(response))
+        }
+
+        async function updateButtons(button) {
+            await fetch('/api/update-buttons', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    button: button
+                })
+            }).then(res => res.text()).then(response => console.log(response))
+        }
+
+        async function updatePotentiometer(value) {
+            await fetch('/api/update-potentiometer', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    potentiometer: value
+                })
+            }).then(res => res.text()).then(response => console.log(response))
+        }
+
+        async function updateSensor(sensor) {
+            const sensorFormatted = sensorTest.split('')[0]
+            await fetch('/api/update-sensors', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    sensor: 'm' + (Number(sensorTest.split('')[1]) - 1).toLocaleString()
+                })
+            }).then(res => res.text()).then(response => console.log('test', 'm' + (Number(sensorTest.split('')[1]) - 1).toLocaleString()))
+        }
+
+        async function getInitialData() {
+            const params = new URLSearchParams(window.location.search)
+            const token = params.get('token')
+
+            await fetch('/api/initial-data', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    token: token
+                })
+            }).then(res => res.text()).then(response => streamUrl = response)
+        }
+
+
+        function updateVisual() {
+            document.getElementById('run').style.backgroundColor = activeRun ? 'green' : 'red'
+            document.getElementById('toggle').style.paddingTop = activeRun ? '0.2em' : '0.9em'
+
+            updatePLC()
+        }
+
+
+        function getOffset(element) {
+            if (!element.getClientRects().length)
+            {
+            return { top: 0, left: 0 };
+            }
+
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return (
+            {
+            top: rect.top + win.pageYOffset,
+            left: rect.left + win.pageXOffset
+            });   
+        }
+
+
+        function calculateCircle(e) {
+            var container = document.getElementById('circle');
+            var slider = document.getElementById('slider');
+            var sliderW2 = slider.getBoundingClientRect().width / 2;
+            var sliderH2 = slider.getBoundingClientRect().height / 2;    
+            var radius = 40;
+            var deg = 0;    
+            var elP = getOffset(container);
+            var elPos = { x: elP.left, y: elP.top};
+            var X = 0, Y = 0;
+            
+            if (mdown && e) {
+                var mPos = {x: e.clientX-elPos.x, y: e.clientY-elPos.y}
+                var atan = Math.atan2(mPos.x-radius, mPos.y-radius)
+                deg = -atan/(Math.PI/180) + 180
+                X = Math.round(radius* Math.sin(deg*Math.PI/180))  
+                Y = Math.round(radius*  -Math.cos(deg*Math.PI/180))
+                
+                document.getElementById('value').innerHTML = Math.round(deg / 18) * 0.5 + 'V' 
+                updatePotentiometer(Math.round(deg / 18) * 0.5)
+
+                document.getElementById('slider').style.left = X + radius - sliderW2 + 'px'
+                document.getElementById('slider').style.top = Y + radius - sliderH2 + 'px'
+            }
+        }
+
+
+
+
+        AFRAME.registerComponent('registerevents', {
+            init: function () 
+            {
+                let marker = this.el;
+                
+                marker.addEventListener('markerFound', function() {
+                    markerVisible[ marker.id ] = true;
+                });
+
+                marker.addEventListener('markerLost', function() {
+                    markerVisible[ marker.id ] = false;
+                });
+
+                if (marker.id === 'm0')
+                {
+                    document.querySelector("#objekt").addEventListener("click", (e)=> {
+                        placeObject = !placeObject
+                        document.getElementById('objekt').innerText = !placeObject ? 'Place Object' : 'Remove Object'
+                        document.getElementById('objekt').style.backgroundColor = placeObject ? 'rgb(31, 115, 217)' : 'rgb(65, 144, 240)'
+                    })
+
+
+                    document.querySelector('#modal').addEventListener("click", (e) => {
+                    showPopup = !showPopup
+                    document.getElementById("popup").style.display = !showPopup ? 'none' : 'block'
+                    })
+
+                    document.querySelector('#closeButton').addEventListener("click", (e) => {
+                    showPopup = !showPopup
+                    document.getElementById("popup").style.display = !showPopup ? 'none' : 'block'
+                    })
+
+                    document.getElementById('toggle').addEventListener("click", (e) => {
+                        activeRun = !activeRun
+                        updateVisual()
+                    })
+
+
+                    document.getElementById('circle').addEventListener('mousedown', (e) => {
+                        mdown = true
+                        calculateCircle(e)
+                    })
+
+                    document.getElementById('circle').addEventListener('mouseup', (e) => {
+                        mdown = false
+                        calculateCircle(e)
+                    })
+                    document.getElementById('circle').addEventListener('click', (e) => {
+                        calculateCircle(e)
+                    })
+                    document.getElementById('circle').addEventListener('mousemove', (e) => {
+                        calculateCircle(e)
+                    })
+
+                    getInitialData()
+                }
+
+                if (marker.id === 'm1')
+                {
+                    document.querySelector("#taster1").addEventListener("mousedown", (e)=> {
+                        buttons.t1 = !buttons.t1
+                        document.getElementById('taster1').style.backgroundColor = 'rgb(31, 115, 217)'
+                        updateButtons("M4")
+                    })
+                    document.querySelector("#taster1").addEventListener("mouseup", (e)=> {
+                        buttons.t1 = !buttons.t1
+                        updateButtons("M4")
+                        document.getElementById('taster1').style.backgroundColor = 'rgb(65, 144, 240)'
+                    })
+                }
+
+                if (marker.id === 'm2')
+                {
+                    document.querySelector("#taster2").addEventListener("mousedown", (e)=> {
+                        buttons.t2 = !buttons.t2
+                        updateButtons("M5")
+                        document.getElementById('taster2').style.backgroundColor = 'rgb(31, 115, 217)'
+                    })
+                    document.querySelector("#taster2").addEventListener("mouseup", (e)=> {
+                        buttons.t2 = !buttons.t2
+                        updateButtons("M5")
+                        document.getElementById('taster2').style.backgroundColor = 'rgb(65, 144, 240)'
+                    })
+                }
+
+                if (marker.id === 'm3')
+                {
+                    document.querySelector("#button1").addEventListener("click", (e)=> {
+                        buttons.b1 = !buttons.b1
+                        updateButtons("M6")
+                        document.getElementById('button1').style.backgroundColor = buttons.b1 ? 'rgb(31, 115, 217)' : 'rgb(65, 144, 240)'
+                    })
+                }
+
+                if (marker.id === 'm4')
+                {
+                    document.querySelector("#button2").addEventListener("click", (e)=> {
+                        buttons.b2 = !buttons.b2
+                        updateButtons("M7")
+                        document.getElementById('button2').style.backgroundColor = buttons.b2 ? 'rgb(31, 115, 217)' : 'rgb(65, 144, 240)'
+                    })
+                }
+            }
+        });
+
+        AFRAME.registerComponent('run', {
+            init: function()
+            {
+                this.m0 = document.querySelector("#m0");
+                this.m1 = document.querySelector("#m1");
+                this.m2 = document.querySelector("#m2");
+                this.m3 = document.querySelector("#m3");
+                this.m4 = document.querySelector("#m4");
+                this.p0 = new THREE.Vector3();
+                this.p1 = new THREE.Vector3(); 
+                this.p2 = new THREE.Vector3(); 
+                this.p3 = new THREE.Vector3(); 
+                this.p4 = new THREE.Vector3(); 
+                
+                this.geometry1 = new THREE.Geometry();
+                this.geometry2 = new THREE.Geometry();
+                this.geometry3 = new THREE.Geometry();
+                this.geometry4 = new THREE.Geometry();
+
+                this.geometry1.vertices.push( new THREE.Vector3(1, 1, 1) );
+                this.geometry1.vertices.push( new THREE.Vector3( 1, 1, 1) );
+                this.geometry2.vertices.push( new THREE.Vector3(-1,-1,-1) );
+                this.geometry2.vertices.push( new THREE.Vector3( 1, 1, 1) );
+                this.geometry3.vertices.push( new THREE.Vector3(-1,-1,-1) );
+                this.geometry3.vertices.push( new THREE.Vector3( 1, 1, 1) );
+                this.geometry4.vertices.push( new THREE.Vector3(-1,-1,-1) );
+                this.geometry4.vertices.push( new THREE.Vector3( 1, 1, 1) );
+
+                this.material = new THREE.LineBasicMaterial( {color: 0xFF0000} );
+
+                this.line1 = new THREE.Line( this.geometry1, this.material );
+                this.line2 = new THREE.Line( this.geometry2, this.material );
+                this.line3 = new THREE.Line( this.geometry3, this.material );
+                this.line4 = new THREE.Line( this.geometry4, this.material );
+
+                let scene = document.querySelector('a-scene').object3D;
+                scene.add( this.line1 );
+                scene.add( this.line2 );
+                scene.add( this.line3 );
+                scene.add( this.line4 );
+
+            },
+            
+            tick: function (time, deltaTime) 
+            {
+                if ( markerVisible["m0"] && markerVisible["m1"] && placeObject)
+                {
+                    this.m0.object3D.getWorldPosition(this.p0);
+                    this.m1.object3D.getWorldPosition(this.p1);
+                    this.geometry1.vertices[0] = this.p0;
+                    this.geometry1.vertices[1] = this.p1;
+                    this.geometry1.verticesNeedUpdate = true;
+                    this.line1.visible = true;
+                    distances.m1 = calculateDistance(
+                        this.p0.x,
+                        this.p0.y,
+                        this.p1.x,
+                        this.p1.y,
+                    )
+                    sensorActivation(this.p0, this.p1, "m1")
+                    shouldSendData("m1")
+                } else {
+                    this.line1.visible = false
+                    distances.m1 = 0
+                }
+                if ( markerVisible["m0"] && markerVisible["m2"] && placeObject)
+                {
+                    this.m0.object3D.getWorldPosition(this.p0);
+                    this.m2.object3D.getWorldPosition(this.p2);
+                    this.geometry2.vertices[0] = this.p0;
+                    this.geometry2.vertices[1] = this.p2;
+                    this.geometry2.verticesNeedUpdate = true;
+                    this.line2.visible = true;
+
+                    distances.m2 = calculateDistance(
+                        this.p0.x,
+                        this.p0.y,
+                        this.p2.x,
+                        this.p2.y,
+                    )           
+                    sensorActivation(this.p0, this.p2, "m2")
+                    shouldSendData("m2")
+                }else {
+                    this.line2.visible = false
+                    distances.m2 = 0
+                }
+                if ( markerVisible["m0"] && markerVisible["m3"] && placeObject)
+                {
+                    this.m0.object3D.getWorldPosition(this.p0);
+                    this.m3.object3D.getWorldPosition(this.p3);
+                    this.geometry3.vertices[0] = this.p0;
+                    this.geometry3.vertices[1] = this.p3;
+                    this.geometry3.verticesNeedUpdate = true;
+                    this.line3.visible = true;
+
+                    distances.m3 = calculateDistance(
+                        this.p0.x,
+                        this.p0.y,
+                        this.p3.x,
+                        this.p3.y,
+                    )   
+                    sensorActivation(this.p0, this.p3, "m3")
+                    shouldSendData("m3")
+                } else {
+                    this.line3.visible = false
+                    distances.m3 = 0
+                }
+                if ( markerVisible["m0"] && markerVisible["m4"] && placeObject)
+                {
+                    this.m0.object3D.getWorldPosition(this.p0);
+                    this.m4.object3D.getWorldPosition(this.p4);
+                    this.geometry4.vertices[0] = this.p0;
+                    this.geometry4.vertices[1] = this.p4;
+                    this.geometry4.verticesNeedUpdate = true;
+                    this.line4.visible = true;
+
+                    distances.m4 = calculateDistance(
+                        this.p0.x,
+                        this.p0.y,
+                        this.p4.x,
+                        this.p4.y,
+                    )   
+                    sensorActivation(this.p0, this.p4, "m4")
+                    shouldSendData("m4")
+                } else {
+                    this.line4.visible = false
+                    distances.m4 = 0
+                }
+                
+                calculateShortestDistance()
+                checkShowObject()
+                handleSensors()
+                checkActiveSensors()
+                calculateCircle()
+
+                // testApi()
+
+                window.onclick = function(event) {
+                    var modal = document.getElementById('popup')
+                    if (event.target == modal) {
+                        showPopup = !showPopup
+                        modal.style.display = "none"
+                    }
+                }
+            }
+        });
+        </script>
+
+<!--  sourceUrl:../../data/videos/headtracking.mp4; sourceType: webcam; -->
+        <div style="position: absolute; top:0; width:100%; background-color: rgb(65, 144, 240); padding: 0.5em 2.5rem; color:white; display: flex; justify-content: space-between; z-index: 1;">
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <img src="{{url_for('static', filename='FEIT-logo.png')}}" width="40" height="40"/>
+                <div style="margin-left: 1rem;">FEEIT - Virtual Laboratory</div>
+            </div>
+            <div id="modal" style="display: flex; justify-content: center; align-items: center; cursor: pointer;">
+                <img src="{{url_for('static', filename='plc-icon.png')}}" width="30" height="30"/>
+            </div>
+        </div>
+        <a-scene id="scene" embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; trackingMethod: best; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceType:webcam">
+
+            <a-assets>
+            </a-assets>
+
+            <!-- <a-marker type="pattern"  preset="custom"  url="data/pattern_markers/object/pattern-object-green.patt" value="0" id="m0" registerevents> -->
+            <a-marker type="barcode" value="0" id="m0" registerevents>
+                <a-entity position="0 0 0" id="virtualObject" geometry="primitive:box; ">
+                </a-entity>
+            </a-marker>
+
+            <a-marker type="barcode" value="1" id="m1" registerevents>
+                <a-plane position="0 0 0" 
+                        rotation="-90 0 0"
+                        id="sensor_m1"
+                        material="color: red; opacity: 1;">
+                </a-plane>
+            </a-marker>
+
+            <a-marker type="barcode" value="2" id="m2" registerevents>
+                <a-plane position="0 0 0" 
+                        rotation="-90 0 0"
+                        id="sensor_m2"
+                        material="color: red; opacity: 1;">
+                </a-plane>
+            </a-marker>
+
+            <a-marker type="barcode" value="3" id="m3" registerevents>
+                <a-plane position="0 0 0" 
+                        rotation="-90 0 0"
+                        id="sensor_m3"
+                        material="color: red; opacity: 1;">
+                </a-plane>
+            </a-marker>
+
+            <a-marker type="barcode" value="4" id="m4" registerevents>
+                <a-plane position="0 0 0" 
+                        rotation="-90 0 0"
+                        id="sensor_m4"
+                        material="color: red; opacity: 1;">
+                </a-plane>
+            </a-marker>
+            
+            <a-marker type="pattern" url="{{url_for('static', filename='kanji.patt')}}" id="baseMarker" >
+            </a-marker>
+
+            <a-entity camera></a-entity>
+
+            <a-entity run></a-entity>
+
+        </a-scene>
+
+        <div>
+            <div style='position: fixed; bottom: 40px; width:100%; text-align: center; z-index: 1;'>
+                <button id="objekt" style="background-color: rgb(65, 144, 240); color: white; padding: 0.35rem; border-radius: 0.25rem; margin-bottom: 1rem;">
+                    Place Object
+                </button>
+            </div>
+
+            <div style='position: fixed; bottom: 10px; width:100%; text-align: center; z-index: 1; display: flex; justify-content: center; flex-direction: row;'>
+                    <button id="taster1" style="border-radius: 50%; background-color: rgb(65, 144, 240); color: white; padding: 0.3rem 0.5rem; margin-right: 0.5rem; margin-left: 0.5rem;">
+                        T1
+                    </button>
+                    
+                    <button id="taster2" style="border-radius: 50%; background-color: rgb(65, 144, 240); color: white; padding: 0.3rem 0.5rem; margin-right: 0.5rem; margin-left: 0.5rem;">
+                        T2
+                    </button>
+                    
+                    <button id="button1" style="border-radius: 50%; background-color: rgb(65, 144, 240); color: white; padding: 0.3rem 0.5rem; margin-right: 0.5rem; margin-left: 0.5rem;">
+                        B1
+                    </button>
+
+                    <button id="button2" style="border-radius: 50%; background-color: rgb(65, 144, 240); color: white; padding: 0.3rem 0.5rem; margin-right: 0.5rem; margin-left: 0.5rem;">
+                        B2
+                    </button>
+            </div>
+
+            
+            <div style='position: fixed; bottom: 10px; right:34%; text-align: center; z-index: 1;'>
+                    <div id='circle'>
+                        <div id='slider'></div>
+                        <div id="value" style="color: white;">0V</div>
+                    </div>
+            </div>
+
+        </div>
+
+
+
+        <div id="popup" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span id="closeButton" style="margin-top: -1rem;" class="close">&times;</span>
+              <div style="margin: 2rem; display: flex; justify-content: space-between;">
+                    <div style="white-space: nowrap; margin-top: 2.5rem">
+                        <div>M0 - IS1</div>
+                        <div>M1 - IS2</div>
+                        <div>M2 - IS3</div>
+                        <div>M3 - PS</div>
+                        <div>M4 - T1</div>
+                        <div>M5 - T2</div>
+                        <div>M6 - K1</div>
+                        <div>M7 - K2</div>
+                        <div>D0 - Потенциометар</div>
+                    </div>
+                    <div class="stack">
+                        <img src="{{url_for('static', filename='plc.png')}}" alt="PLC" style="width: 200%">
+                        <div class="dot pow"></div>
+                        <div id="run" class="dot run"></div>
+                        <div id="toggle" class="trigger">
+                            <div class="innerDot"></div>
+                        </div>
+                    </div>
+              </div>
+            </div>
+          
+        </div>
+
+    
+        <style>
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            /* Modal Content */
+            .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            width: 80%;
+            border-radius: 2%;
+            }
+            /* The Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+
+            
+            .innerDot {
+                width: 0.7em;
+                height: 0.7em;
+                border-radius: 50%;
+                background-color: black;
+            }
+
+            .trigger {
+                width: 1em;
+                height: 1.7em;
+                border-radius: 30%;
+                background-color: lightgray;
+                margin-left:40.5%;
+                margin-top: 15.5%;
+                cursor: pointer;
+                padding-top: 0.2%;
+
+                justify-content: center;
+                display: flex;
+            }
+
+            .dot {
+                width: 0.8em;
+                height: 0.5em;
+                border-radius: 30%;
+            }
+            .pow {
+                margin-top: 21.9%;
+                margin-left: 68.9%;
+                background-color: green;
+            }
+            .run {
+                margin-top: 23.1%;
+                margin-left: 68.9%;
+                background-color: green;
+            }
+
+            .stack {
+                display: grid;
+            }
+            .stack > * {
+                grid-row: 1;
+                grid-column: 1;
+            }
+
+            #circle { 
+                width:5rem; 
+                aspect-ratio: 1;
+                border:2px solid rgb(31, 115, 217); 
+                border-radius:100%;
+                float:left;
+                margin-right:40px;
+                background-color: rgb(31, 115, 217, 0.4);
+            }
+
+            #slider { 
+                position:relative;
+                height:1.6rem;
+                aspect-ratio: 1;
+                background: rgb(65, 144, 240);;
+                left:30px;
+                top:-11px;
+                border-radius:100%;
+                cursor:pointer;
+            }
+
+            #container {
+                position: fixed;
+                width: 100%;
+                bottom: 10px;
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: aqua;
+            }
+
+
+        </style>
+    </body>
+</html>

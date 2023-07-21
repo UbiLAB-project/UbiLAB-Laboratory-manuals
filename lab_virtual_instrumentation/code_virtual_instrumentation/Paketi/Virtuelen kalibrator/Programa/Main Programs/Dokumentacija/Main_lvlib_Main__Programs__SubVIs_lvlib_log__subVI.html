@@ -1,0 +1,297 @@
+<HTML>
+<HEAD>
+<TITLE>Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi"></A><H2>Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi</H2>
+<P>This subVI is used to write the the data to csv or txt file. </P>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_log__subVIc.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi"></P>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_log__subVIp.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cpath.png" ALT="cpath"></P>
+</TD>
+<TD>
+<B>Path</B> <P><B>file path</B> is the path name of the file. If <B>file path</B> is empty (default) or is &lt;Not A Path&gt;, the VI displays a dialog box from which you can select a file. Error 43 occurs if you cancel the dialog box.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Surname</B> <P>Enter your surname</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Lab</B> <P>Enter the name of your lab</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Instrument</B> <P>Enter the name of the calibrated instrument. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>True Value</B> <P>The true value of the unit</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Incremented</B> <P>Incremented value of the unit</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Error</B> <P>Enter the relative error string. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>Error In</B> <P><B>error in</B> describes error conditions that occur before this node runs. This input provides standard error in functionality.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred before this node ran or FALSE (checkmark) to indicate a warning or that no error occurred before this node ran. The default is FALSE.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code. The default is 0.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> specifies the origin of the error or warning and is, in most cases, the name of the node that produced the error or warning. The default is an empty string.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Name</B> <P>Enter your name.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ierrcodeclst.png" ALT="ierrcodeclst"></P>
+</TD>
+<TD>
+<B>Error Out</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ii32.png" ALT="ii32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_log__subVId.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi"></P>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_log__subVId1.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi"></P>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_log__subVId2.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi"></P>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_log__subVId3.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Get_File_Extensioni.png" ALT="Get File Extension.vi"></P>
+</TD>
+<TD>
+<B><P>Get File Extension.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\libraryn.llb\Get File Extension.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Space_Constanti.png" ALT="Space Constant.vi"></P>
+</TD>
+<TD>
+<B><P>Space Constant.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\dlg_ctls.llb\Space Constant.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Write_Delimited_Spreadsheet_(string)i.png" ALT="Write Delimited Spreadsheet (string).vi"></P>
+</TD>
+<TD>
+<B><P>Write Delimited Spreadsheet (string).vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\file.llb\Write Delimited Spreadsheet (string).vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Write_Delimited_Spreadsheeti.png" ALT="Write Delimited Spreadsheet.vi"></P>
+</TD>
+<TD>
+<B><P>Write Delimited Spreadsheet.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\file.llb\Write Delimited Spreadsheet.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Read_Delimited_Spreadsheet_(string)i.png" ALT="Read Delimited Spreadsheet (string).vi"></P>
+</TD>
+<TD>
+<B><P>Read Delimited Spreadsheet (string).vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\file.llb\Read Delimited Spreadsheet (string).vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Read_Delimited_Spreadsheeti.png" ALT="Read Delimited Spreadsheet.vi"></P>
+</TD>
+<TD>
+<B><P>Read Delimited Spreadsheet.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\file.llb\Read Delimited Spreadsheet.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NI__LVConfig_lvlib_Close_Config_Datai.png" ALT="NI_LVConfig.lvlib:Close Config Data.vi"></P>
+</TD>
+<TD>
+<B><P>NI_LVConfig.lvlib:Close Config Data.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\config.llb\Close Config Data.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NI__LVConfig_lvlib_Write_Key_(String)i.png" ALT="NI_LVConfig.lvlib:Write Key (String).vi"></P>
+</TD>
+<TD>
+<B><P>NI_LVConfig.lvlib:Write Key (String).vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\config.llb\Write Key (String).vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NI__LVConfig_lvlib_Write_Keyi.png" ALT="NI_LVConfig.lvlib:Write Key.vi"></P>
+</TD>
+<TD>
+<B><P>NI_LVConfig.lvlib:Write Key.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\config.llb\Write Key.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NI__LVConfig_lvlib_Get_Section_Namesi.png" ALT="NI_LVConfig.lvlib:Get Section Names.vi"></P>
+</TD>
+<TD>
+<B><P>NI_LVConfig.lvlib:Get Section Names.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\config.llb\Get Section Names.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NI__LVConfig_lvlib_Open_Config_Datai.png" ALT="NI_LVConfig.lvlib:Open Config Data.vi"></P>
+</TD>
+<TD>
+<B><P>NI_LVConfig.lvlib:Open Config Data.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 2020\vi.lib\Utility\config.llb\Open Config Data.vi</P>
+</TD>
+</TR>
+</Table>
+<P>&quot;Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi History&quot;</P>
+<P>Current Revision:   12</P>
+<HR>
+<H3>Position in Hierarchy</H3>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_log__subVIh.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:log_subVI.vi"></P>
+<HR>
+<H3>Iconified Cluster Constants</H3>
+</BODY>
+</HTML>

@@ -1,0 +1,866 @@
+<HTML>
+<HEAD>
+<TITLE>Main.lvlib:Glavna_Programa.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="Main.lvlib:Glavna_Programa.vi"></A><H2>Main.lvlib:Glavna_Programa.vi</H2>
+<P>Main VI program. </P>
+<P>1. After starting the program, click PowerUP to turn on the calibrator.</P>
+<P>2. The program in Standby can pick the signal values with the use of the keyboard or SetUP mode. </P>
+<P>The SetUP VI can configure can change the signal type, offset and phase. </P>
+<P>3. Click Operate to go to Operate mode. First 2 Warning message will be shown, then the program will start with Operate mode.</P>
+<P>4. Click Standby to go to standby again, then the program will stop with the DaQ and Operating mode.</P>
+<P>5. Click PowerUP to sotp the program</P>
+<P><IMG SRC="Main_lvlib_Glavna__Programac.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programap.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>1</B> <P>When this button is clicked 1 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>2</B> <P>When this button is clicked 2 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>3</B> <P>When this button is clicked 3 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>4</B> <P>When this button is clicked 4 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>5</B> <P>When this button is clicked 5 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>6</B> <P>When this button is clicked 6 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>7</B> <P>When this button is clicked 7 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>8</B> <P>When this button is clicked 8 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>m</B> <P>When this button is clicked m will be added to the unit scale. If this button is clicked after shift micro will be added to the unit scale. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>9</B> <P>When this button is clicked 9 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>A</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Boost</B> <P>Disabled and grayed out until further development of the program.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>C</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>CE</B> <P>When this button is clicked the keyboard string will be deleted from right to left.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Conn?</B> <P>When this button is clicked, another program will be opened and the wiring scheme will be shown. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Div</B> <P>When this button is clicked the keyboard string value will be divided by 10.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Earth</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Enter</B> <P>When this button is clicked, the keyboard string will be entered to the signal value FGV. This button can only be clicked if the user have entered a unit before.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>F</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Hz</B> <P>When this button is clicked Hz will be added to the unit . If this button is clicked after shift sec will be added to the unit . </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>k</B> <P>When this button is clicked k will be added to the unit scale. n is left for further development.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>M</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Meas</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Multi</B> <P>When this button is clicked the keyboard string value will be multiplied by 10.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>NewRef</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Ohm</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Opr</B> <P>When this button is clicked the program will go to Operate mode.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Plus</B> <P>This button will change the polarity of the value.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Power Up</B> <P>Click this button to turn on and off the calibrator. When the calibrator is turned off the program ill end.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Reset</B> <P>When this button is clicked the signal and keyboard FGVs are reseted.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Save</B> <P>When this button is clicked the Save VI will be opened.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Scope</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>SetUP</B> <P>When this button is clicked the SetUP VI will be opened. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Shift</B> <P>When this button is clicked, the secondary options would be available to enter.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>STBY</B> <P>When this button is clicked the program will go to Standby mode</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>0</B> <P>When this button is clicked 0 will be shown on the keyboard indicator number or decimal.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Tocka</B> <P>When clicking this button the user picks the position of the numbers. Number or decimal mode</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Trig</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>V</B> <P>When this button is clicked V will be added to the unit. The shift option is left for further development.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cdbl.png" ALT="cdbl"></P>
+</TD>
+<TD>
+<B>Knob</B> <P>The knob is used to increment the signal value so the error is calculated.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>NormalVOut</B> <P>Voltage output diode, will blink if the voltage is dangerous.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>AuxAOut</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>Scope In</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>Scope Out</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>Desen_Indikator </B> <P>On this string indicator will be shown the:</P>
+<P>-Keyboard string</P>
+<P>-Reminders</P>
+<P>-Error Strings</P>
+<P>-End message (END for normal ending and Error for ending due to error)</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="istr.png" ALT="istr"></P>
+</TD>
+<TD>
+<B>Lev_Indikator </B> <P>On this string indicator the signal properties, working mode and safety message will be shown. </P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>NormalV</B> <P>Voltage input diode, will blink if the voltage is dangerous.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ibool.png" ALT="ibool"></P>
+</TD>
+<TD>
+<B>AuxA</B> <P>Disabled and grayed out until further development of the program. </P>
+</TD>
+</TR>
+</Table>
+<P><IMG SRC="Main_lvlib_Glavna__Programad.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad1.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad2.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad3.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad4.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad5.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad6.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad7.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad8.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad9.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad10.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad11.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad12.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad13.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad14.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad15.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad16.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad17.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad18.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad19.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad20.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad21.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad22.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad23.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad24.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad25.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad26.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad27.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad28.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad29.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad30.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad31.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad32.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad33.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad34.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad35.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad36.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad37.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad38.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad39.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad40.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad41.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad42.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad43.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad44.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad45.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad46.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad47.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad48.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad49.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad50.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad51.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad52.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad53.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad54.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad55.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad56.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad57.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad58.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad59.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad60.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad61.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad62.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad63.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad64.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad65.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad66.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad67.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad68.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad69.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad70.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad71.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad72.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad73.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad74.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad75.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad76.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad77.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad78.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad79.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad80.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad81.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad82.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad83.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad84.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programad85.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Main_lvlib_DaQ__FGVi.png" ALT="Main.lvlib:DaQ_FGV.vi"></P>
+</TD>
+<TD>
+<B><P>Main.lvlib:DaQ_FGV.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Main Programs\FGVs\DaQ_FGV.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="error__handlctli.png" ALT="error_handl.ctl"></P>
+</TD>
+<TD>
+<B><P>error_handl.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\error_handl.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Queues_lvlib_Release__Maini.png" ALT="Queues.lvlib:Release_Main.vi"></P>
+</TD>
+<TD>
+<B><P>Queues.lvlib:Release_Main.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Polymorphic\Release_Main.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="QMH__Daq__Statesctli.png" ALT="QMH_Daq_States.ctl"></P>
+</TD>
+<TD>
+<B><P>QMH_Daq_States.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\QMH_Daq_States.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Kalibrator__Sostojbictli.png" ALT="Kalibrator_Sostojbi.ctl"></P>
+</TD>
+<TD>
+<B><P>Kalibrator_Sostojbi.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\Kalibrator_Sostojbi.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_QMH__Daqi.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:QMH_Daq.vi"></P>
+</TD>
+<TD>
+<B><P>Main.lvlib:Main_Programs_SubVIs.lvlib:QMH_Daq.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Main Programs\subVIS\QMH_Daq.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Main_lvlib_Global__Errosi.png" ALT="Main.lvlib:Global_Erros.vi"></P>
+</TD>
+<TD>
+<B><P>Main.lvlib:Global_Erros.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Main Programs\FGVs\Global_Erros.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Queues_lvlib_Enq__DaQ__QMHi.png" ALT="Queues.lvlib:Enq_DaQ_QMH.vi"></P>
+</TD>
+<TD>
+<B><P>Queues.lvlib:Enq_DaQ_QMH.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Polymorphic\Enq_DaQ_QMH.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Queues_lvlib_Queuesi.png" ALT="Queues.lvlib:Queues.vi"></P>
+</TD>
+<TD>
+<B><P>Queues.lvlib:Queues.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Polymorphic\Queues.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="DaQ__Signali.png" ALT="DaQ_Signal.vi"></P>
+</TD>
+<TD>
+<B><P>DaQ_Signal.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Polymorphic\DaQ_Signal.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Queues_lvlib_Prev__Calibrator__QMHi.png" ALT="Queues.lvlib:Prev_Calibrator_QMH.vi"></P>
+</TD>
+<TD>
+<B><P>Queues.lvlib:Prev_Calibrator_QMH.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Polymorphic\Prev_Calibrator_QMH.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Queues_lvlib_Init__Maini.png" ALT="Queues.lvlib:Init_Main.vi"></P>
+</TD>
+<TD>
+<B><P>Queues.lvlib:Init_Main.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Polymorphic\Init_Main.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Queues_lvlib_Enq__Calibrator__QMHi.png" ALT="Queues.lvlib:Enq_Calibrator_QMH.vi"></P>
+</TD>
+<TD>
+<B><P>Queues.lvlib:Enq_Calibrator_QMH.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Polymorphic\Enq_Calibrator_QMH.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Queues_lvlib_DeQ__Calibrator__QMHi.png" ALT="Queues.lvlib:DeQ_Calibrator_QMH.vi"></P>
+</TD>
+<TD>
+<B><P>Queues.lvlib:DeQ_Calibrator_QMH.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Polymorphic\DeQ_Calibrator_QMH.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Main_lvlib_Main__Programs__SubVIs_lvlib_check__queuei.png" ALT="Main.lvlib:Main_Programs_SubVIs.lvlib:check_queue.vi"></P>
+</TD>
+<TD>
+<B><P>Main.lvlib:Main_Programs_SubVIs.lvlib:check_queue.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Main Programs\subVIS\check_queue.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_lvlib_signal__amp__unit__FGVi.png" ALT="Signal.lvlib:signal_amp_unit_FGV.vi"></P>
+</TD>
+<TD>
+<B><P>Signal.lvlib:signal_amp_unit_FGV.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Signal\FGVs\signal_amp_unit_FGV.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Unitctli.png" ALT="Unit.ctl"></P>
+</TD>
+<TD>
+<B><P>Unit.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\Unit.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_lvlib_Safety__FGVi.png" ALT="Signal.lvlib:Safety_FGV.vi"></P>
+</TD>
+<TD>
+<B><P>Signal.lvlib:Safety_FGV.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Signal\FGVs\Safety_FGV.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_lvlib_signal__values__FGVi.png" ALT="Signal.lvlib:signal_values_FGV.vi"></P>
+</TD>
+<TD>
+<B><P>Signal.lvlib:signal_values_FGV.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Signal\FGVs\signal_values_FGV.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_Valuesctli.png" ALT="Signal Values.ctl"></P>
+</TD>
+<TD>
+<B><P>Signal Values.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\Signal Values.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="dangerctli.png" ALT="danger.ctl"></P>
+</TD>
+<TD>
+<B><P>danger.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\danger.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Main_lvlib_Savei.png" ALT="Main.lvlib:Save.vi"></P>
+</TD>
+<TD>
+<B><P>Main.lvlib:Save.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Main Programs\Save.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_lvlib_relative__error__fgvi.png" ALT="Signal.lvlib:relative_error_fgv.vi"></P>
+</TD>
+<TD>
+<B><P>Signal.lvlib:relative_error_fgv.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Signal\FGVs\relative_error_fgv.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="rel__errorctli.png" ALT="rel_error.ctl"></P>
+</TD>
+<TD>
+<B><P>rel_error.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\rel_error.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Main_lvlib_Setupi.png" ALT="Main.lvlib:Setup.vi"></P>
+</TD>
+<TD>
+<B><P>Main.lvlib:Setup.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Main Programs\Setup.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_lvlib_keyboard__FGVi.png" ALT="Signal.lvlib:keyboard_FGV.vi"></P>
+</TD>
+<TD>
+<B><P>Signal.lvlib:keyboard_FGV.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Signal\FGVs\keyboard_FGV.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Signal_lvlib_Check__FGVi.png" ALT="Signal.lvlib:Check_FGV.vi"></P>
+</TD>
+<TD>
+<B><P>Signal.lvlib:Check_FGV.vi</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Signal\FGVs\Check_FGV.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="checkctli.png" ALT="check.ctl"></P>
+</TD>
+<TD>
+<B><P>check.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\check.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Keyboard__Sostojbictli.png" ALT="Keyboard_Sostojbi.ctl"></P>
+</TD>
+<TD>
+<B><P>Keyboard_Sostojbi.ctl</P>
+</B><P>C:\Users\User\Desktop\Materijali fakultet\LabVIEW\Diplomska\Virtuelen kalibrator\Programa\Tipski Definicii\Keyboard_Sostojbi.ctl</P>
+</TD>
+</TR>
+</Table>
+<P>&quot;Main.lvlib:Glavna_Programa.vi History&quot;</P>
+<P>Current Revision:   116</P>
+<P>rev. 87 Sat, Apr 18, 2020 10:22:15 PM X</P>
+<P>y</P>
+<P>rev. 81 Thu, Apr 16, 2020 9:11:27 PM X</P>
+<P>y</P>
+<HR>
+<H3>Position in Hierarchy</H3>
+<P><IMG SRC="Main_lvlib_Glavna__Programah.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<HR>
+<H3>Iconified Cluster Constants</H3>
+<P><IMG SRC="Main_lvlib_Glavna__Programak1.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programak2.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+<P><IMG SRC="Main_lvlib_Glavna__Programak3.png" ALT="Main.lvlib:Glavna_Programa.vi"></P>
+</BODY>
+</HTML>
